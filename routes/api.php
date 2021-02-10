@@ -20,3 +20,4 @@ use Illuminate\Http\Request;
 Route::post('/login', 'Api\BackEndController@login');
 Route::post('/regis', 'Api\BackEndController@store');
 Route::get('/produk', 'Api\BackEndController@produk');
+Route::post('/checkout', 'Api\TransaksiController@store');
