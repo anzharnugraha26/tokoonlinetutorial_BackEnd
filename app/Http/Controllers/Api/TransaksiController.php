@@ -23,6 +23,31 @@ class TransaksiController extends Controller
         //
     }
 
+    public function history($id)
+    {
+        $transaksis = Transaksi::with(['user'])->whereHas('user', function ($query) use ($id) {
+            $query->whereId($id);
+        })->get();
+
+        foreach ($transaksis as $transaksi) {
+            $details = $transaksi->details;
+            foreach ($details as $detail) {
+                $detail->produk;
+            }
+        }
+
+        if (!empty($transaksi)) {
+
+            return response()->json([
+                'success' => 1,
+                'message' => "transaksi berhasil",
+                'transaksi' => collect($transaksi)
+            ]);
+        } else {
+            $this->error('transsaksi gagal');
+        }
+    }
+
 
     public function store(Request $request)
     {
