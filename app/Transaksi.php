@@ -10,7 +10,7 @@ class Transaksi extends Model
     protected $fillable = [
         'user_id', 'kode_payment', 'kode_trx', 'total_item',
         'total_harga', 'status', 'resi', 'kurir', 'name', 'phone','kode_unik',
-        'detail_lokasi', 'deskripsi', 'metode', 'expired_at'
+        'detail_lokasi', 'deskripsi', 'metode', 'expired_at', 'jasa_pengiriman','ongkir','total_transfer','bank'
     ];
 
     public function details()
